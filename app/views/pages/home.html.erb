@@ -1,0 +1,14 @@
+<% if flash[:error] %>
+   <p> <%= flash[:error] %> </p>
+<% end %>
+
+Welcome to the sorcery test app. Try to link to the secret page!
+
+<%= link_to 'secret', secret_path %>
+
+<% if logged_in? %>
+  <%= link_to 'logout', logout_path %>
+<% else %>
+  <%= link_to 'login', login_path %>
+  <%= link_to 'signup', signup_path %>
+<% end %>
