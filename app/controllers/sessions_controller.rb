@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    user = login(params[:email], params[:password])
+    user = login(params[:username], params[:password])
     if user
       redirect_back_or_to root_url
     else
@@ -15,5 +15,4 @@ class SessionsController < ApplicationController
     logout #sorcery method
     redirect_to(root_url)
   end
-  
 end

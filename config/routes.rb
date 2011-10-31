@@ -4,7 +4,10 @@ Sorceryapp::Application.routes.draw do
   get "login" => 'sessions#new', :as => 'login'
   get "logout" => 'sessions#destroy', :as => 'logout'
   get "signup" => 'users#new', :as => 'signup'
-  
+
+  get "auth/:provider" => 'authentications#auth', :as => :auth_at_provider
+  get "auth/:provider/callback" => 'authentications#callback'
+
   resources :users
   resources :sessions
 

@@ -6,10 +6,12 @@
 
 <p>
   <% if logged_in? %>
-    Hi <%= current_user.email %>.
+    Hi <%= current_user.username %>.
+    Your id is <%= current_user.id %>
     <%= link_to 'logout', logout_path %>
   <% else %>
     <%= link_to 'login', login_path %>
+    <%= link_to 'login with Twitter', auth_at_provider_path(:provider => :twitter) %>
     <%= link_to 'signup', signup_path %>
   <% end %>
 
