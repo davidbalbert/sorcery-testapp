@@ -2,13 +2,16 @@
    <p> <%= flash[:error] %> </p>
 <% end %>
 
-Welcome to the sorcery test app. Try to link to the secret page!
+<p>Welcome to the sorcery test app. Try to link to the secret page!</p>
 
-<%= link_to 'secret', secret_path %>
+<p>
+  <% if logged_in? %>
+    Hi <%= current_user.email %>.
+    <%= link_to 'logout', logout_path %>
+  <% else %>
+    <%= link_to 'login', login_path %>
+    <%= link_to 'signup', signup_path %>
+  <% end %>
 
-<% if logged_in? %>
-  <%= link_to 'logout', logout_path %>
-<% else %>
-  <%= link_to 'login', login_path %>
-  <%= link_to 'signup', signup_path %>
-<% end %>
+  <%= link_to 'secret', secret_path %>
+</p>
